@@ -2,10 +2,13 @@ from flask import Flask, jsonify
 from flask_restx import Resource, Api
 
 
-# instantiate the app
+# Instantiate the app
 app = Flask(__name__)
 
 api = Api(app)
+
+# Set configuration
+app.config.from_object('transactions.config.DevelopmentConfig')
 
 
 class Ping(Resource):
