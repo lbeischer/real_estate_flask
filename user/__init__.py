@@ -19,17 +19,6 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 
-# model
-class Users(db.Model):
-    """ Contains the user data for site users"""
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    username = db.Column(db.String(64), index=True, unique=True)
-    email = db.Column(db.String(64), index=True, unique=True)
-    password_hash = db.Column(db.String(128))
-
-    def __repr__(self):
-        return '<User {}>'.format(self.username)
-
 class Ping(Resource):
     def get(self):
         return {
@@ -39,3 +28,5 @@ class Ping(Resource):
 
 
 api.add_resource(Ping, '/ping')
+
+from user import models
