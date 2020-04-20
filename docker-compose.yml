@@ -2,14 +2,13 @@ version: '3.7'
 
 services:
 
-  users:
+  real_estate:
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - .:/usr/src/app
     ports:
       - 5001:5000
     environment:
-      - FLASK_APP=transactions/__init__.py
+      - FLASK_APP=user/__init__.py
       - FLASK_ENV=development
+      - COMPOSE_CONVERT_WINDOWS_PATHS=1

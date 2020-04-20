@@ -17,4 +17,6 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Run server
-CMD python manage.py run -h 0.0.0.0
+CMD python manage.py run -h 0.docker0.0.0
+
+docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 71dbca348d9c
